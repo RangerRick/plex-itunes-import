@@ -1,0 +1,14 @@
+hostname: "your.server.name"
+port: 32400
+token: "your.plex.token"
+itunesxml: "/Volumes/music/iTunes Library.xml"
+stripPrefixes:
+  - "/Volumes/music"
+  - "/Volumes/music/iTunes Media"
+  - "/Volumes/music-1"
+  - "/Volumes/music-1/iTunes Media"
+stripNames:
+  - "'s\\b"            # remove plural from words
+  - "[\\!/]"           # no exclamation points or slashes
+  - "\\b(\\&|and)\\b"  # and/& can muddy the waters if you search one but should match the other
+  - " *\\([^\\)]*\\)$" # remove (feat. blah) and similar parenthesized things from the end, allow file match to handle it
