@@ -16,8 +16,14 @@ Copy the `example.yaml` file to `config.yaml` and edit it to match your iTunes a
   <dt><strong>port</strong></dt>
   <dd>The port that Plex is listening on.  (Optional)</dd>
 
-  <dt><strong>token</strong></dt>
-  <dd>Your Plex API token.  You can get this by going to Plex, clicking the "⋯" on an album or TV show, choosing "Get Info", and then clicking "View XML".  In the URL in your browser, you will see something like, <code>X-Plex-Token=ABCD12345678</code>.  The token is the string of numbers and letters after the <code>X-Plex-Token=</code>.</dd>
+  <dt><strong>username</strong></dt>
+  <dd>Your Plex username.</dd>
+
+  <dt><strong>password</strong></dt>
+  <dd>Your Plex password.</dd>
+
+  <dt><strong>managedUser</strong></dt>
+  <dd>If you are using PlexHome users, set the <strong>name</strong> and <strong>pin</strong> for the PlexHome user to operate as.</dd>
 
   <dt><strong>itunesxml</strong></dt>
   <dd>The complete path to your <code>iTunes Library.xml</code> file.</dd>

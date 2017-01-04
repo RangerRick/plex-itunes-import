@@ -1,3 +1,5 @@
+const os                     = require('os');
+
 const PlexAPI                = require('plex-api');
 const Queue                  = require('promise-queue');
 const LRU                    = require('lru-cache');
@@ -25,18 +27,39 @@ let playlistCache = new PlaylistCollection();
 
 class PlexImporter {
 	constructor(config, failureHandler) {
-		this.config = config;
 		this.failureHandler = failureHandler || {
 			onFailure: function() {}
 		};
 
-		_client = new PlexAPI({
-			hostname: config.hostname,
-			port: config.port || 32400,
-			username: config.username,
-			password: config.password,
-			options: config
-		});
+		if (!config.product) {
+			config.product = 'Plex iTunes Import';
+		}
+		if (!config.deviceName) {
+			let hostname = os.hostname();
+			if (hostname) {
+				hostname = hostname.replace(/\..*$/, '');
+			}
+			config.deviceName = hostname;
+		}
+		if (!config.version) {
+			config.version = '0.1.1';
+		}
+
+		let clientOptions = {
+			options: {}
+		};
+		Object.assign(clientOptions.options, config);
+
+		for (let configKey of ['hostname', 'port', 'username', 'password', 'managedUser']) {
+			if (config[configKey]) {
+				clientOptions[configKey] = config[configKey];
+			}
+			delete clientOptions.options[configKey];
+		}
+
+		this.config = config;
+
+		_client = new PlexAPI(clientOptions);
 
 		_artistCache = new LRU(config.artistCacheSize || 50);
 		_albumCache  = new LRU(config.albumCacheSize || 500);

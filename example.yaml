@@ -1,6 +1,14 @@
 hostname: "your.server.name"
 port: 32400
-token: "your.plex.token"
+
+username: YourPlexUserName
+password: YourPlexPassword
+
+# optional, only required if you are using Plex Home managed users
+managedUser:
+  name: managedUserName
+  pin: managedUserPin
+
 itunesxml: "/Volumes/music/iTunes Library.xml"
 stripPrefixes:
   - "/Volumes/music"
