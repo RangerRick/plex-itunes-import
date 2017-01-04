@@ -10,22 +10,22 @@ Configuring the Importer
 Copy the `example.yaml` file to `config.yaml` and edit it to match your iTunes and Plex settings.
 
 <dl>
-  <dt>hostname</dt>
+  <dt><strong>hostname</strong></dt>
   <dd>The hostname or IP address of your Plex server.</dd>
 
-  <dt>port</dt>
+  <dt><strong>port</strong></dt>
   <dd>The port that Plex is listening on.  (Optional)</dd>
 
-  <dt>token</dt>
-  <dd>Your Plex API token.  You can get this by going to Plex, clicking the "⋯" on an album or TV show, choosing "Get Info", and then clicking "View XML".  In the URL in your browser, you will see something like, `X-Plex-Token=ABCD12345678`.  The token is the string of numbers and letters after the `X-Plex-Token=`.</dd>
+  <dt><strong>token</strong></dt>
+  <dd>Your Plex API token.  You can get this by going to Plex, clicking the "⋯" on an album or TV show, choosing "Get Info", and then clicking "View XML".  In the URL in your browser, you will see something like, <code>X-Plex-Token=ABCD12345678</code>.  The token is the string of numbers and letters after the <code>X-Plex-Token=</code>.</dd>
 
-  <dt>itunesxml</dt>
-  <dd>The complete path to your `iTunes Library.xml` file.</dd>
+  <dt><strong>itunesxml</strong></dt>
+  <dd>The complete path to your <code>iTunes Library.xml</code> file.</dd>
 
-  <dt>stripPrefixes</dt>
+  <dt><strong>stripPrefixes</strong></dt>
   <dd>A list of prefixes to strip off of the beginning of file names when trying to determine song matches.</dd>
 
-  <dt>stripNames</dt>
+  <dt><strong>stripNames</strong></dt>
   <dd>A list of regular expressions that are applied (in order, top to bottom) to album and song names when searching Plex for matches.</dd>
 </dl>
 

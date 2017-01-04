@@ -1,6 +1,6 @@
 {
   "name": "plex-itunes-import",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Import iTunes Library XML playlists into Plex",
   "main": "src/main.js",
   "scripts": {
