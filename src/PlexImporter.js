@@ -42,7 +42,7 @@ class PlexImporter {
 			config.deviceName = hostname;
 		}
 		if (!config.version) {
-			config.version = '0.1.1';
+			config.version = '0.1.2';
 		}
 
 		let clientOptions = {
