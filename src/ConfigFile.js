@@ -1,5 +1,5 @@
 const fs = require('fs');
-const uuid = require('node-uuid');
+const uuid = require('uuid');
 const yaml = require('js-yaml');
 
 const spaces = new RegExp('[\\t\\s]+', 'g');

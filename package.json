@@ -15,15 +15,17 @@
   "author": "Benjamin Reed <npm@raccoonfink.com>",
   "license": "MIT",
   "dependencies": {
-    "command-line-args": "^3.0.5",
+    "command-line-args": "^4.0.7",
     "diacritics": "^1.2.3",
     "itunes-db": "^0.4.0",
     "js-yaml": "^3.7.0",
     "lru-cache": "^4.0.2",
-    "node-uuid": "^1.4.7",
+    "node-gyp": "^3.6.2",
     "plex-api": "^5.0.2",
-    "promise": "^7.1.1",
+    "promise": "^8.0.1",
     "promise-queue": "^2.2.3",
+    "sqlite3": "^3.1.13",
+    "uuid": "^3.1.0",
     "winston": "^2.3.0"
   },
   "devDependencies": {

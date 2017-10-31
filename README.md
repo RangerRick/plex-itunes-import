@@ -41,11 +41,18 @@ Running the Importer
 
 Once you have checked out/downloaded the project, install the dependencies:
 
-`npm install`
+```
+# if you don't already have yarn installed, install it
+sudo npm install -g yarn
+yarn install
+```
+
+(Note, because of a bug on more recent versions of Mac OS X and Xcode,
+you may need to run `LDFLAGS=/usr/lib yarn install` if you get compile errors.)
 
 Then, you can run the importer with:
 
-`npm run import -- [--verbose] [--debug] [--config path/to/config.yaml]`
+`yarn run import -- [--verbose] [--debug] [--config path/to/config.yaml]`
 
 
 TODO
