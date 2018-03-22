@@ -3,32 +3,40 @@
   "version": "0.2.0",
   "description": "Import iTunes Library XML playlists into Plex",
   "main": "src/main.js",
-  "scripts": {
-    "import": "node src/main.js",
-    "test": "echo \"Error: no tests implemented yet.\" && exit 1"
-  },
   "keywords": [
     "plex",
     "itunes",
     "playlists"
   ],
   "author": "Benjamin Reed <npm@raccoonfink.com>",
+  "homepage": "https://github.com/RangerRick/plex-itunes-import",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RangerRick/plex-itunes-import.git"
+  },
   "license": "MIT",
   "dependencies": {
     "command-line-args": "^4.0.7",
+    "continuation-local-storage": "^3.2.0",
     "diacritics": "^1.2.3",
     "itunes-db": "^0.4.0",
     "js-yaml": "^3.7.0",
     "lru-cache": "^4.0.2",
     "node-gyp": "^3.6.2",
-    "plex-api": "^5.0.2",
+    "plex-api": "^5.2.0",
+    "plex-api-pinauth": "^0.1.0",
     "promise": "^8.0.1",
     "promise-queue": "^2.2.3",
+    "sequelize": "^4.22.1",
     "sqlite3": "^3.1.13",
     "uuid": "^3.1.0",
     "winston": "^2.3.0"
   },
   "devDependencies": {
     "jshint": "^2.9.4"
+  },
+  "scripts": {
+    "import": "node src/main.js",
+    "test": "echo \"Error: no tests implemented yet.\" && exit 1"
   }
 }

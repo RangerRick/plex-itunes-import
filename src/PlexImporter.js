@@ -26,46 +26,19 @@ let _syncQueue = new Queue(1);
 let playlistCache = new PlaylistCollection();
 
 class PlexImporter {
-	constructor(config, failureHandler) {
+	constructor(server, failureHandler) {
+		this.server = server;
 		this.failureHandler = failureHandler || {
 			onFailure: function() {}
 		};
 
-		if (!config.product) {
-			config.product = 'Plex iTunes Import';
-		}
-		if (!config.deviceName) {
-			let hostname = os.hostname();
-			if (hostname) {
-				hostname = hostname.replace(/\..*$/, '');
-			}
-			config.deviceName = hostname;
-		}
-		if (!config.version) {
-			config.version = '0.2.0';
-		}
+		_client = new PlexAPI(server.getClientOptions());
 
-		let clientOptions = {
-			options: {}
-		};
-		Object.assign(clientOptions.options, config);
+		_artistCache = new LRU(server.config.artistCacheSize || 50);
+		_albumCache  = new LRU(server.config.albumCacheSize || 500);
 
-		for (let configKey of ['hostname', 'port', 'username', 'password', 'managedUser']) {
-			if (config[configKey]) {
-				clientOptions[configKey] = config[configKey];
-			}
-			delete clientOptions.options[configKey];
-		}
-
-		this.config = config;
-
-		_client = new PlexAPI(clientOptions);
-
-		_artistCache = new LRU(config.artistCacheSize || 50);
-		_albumCache  = new LRU(config.albumCacheSize || 500);
-
-		if (config.logger) {
-			_logger = config.logger;
+		if (server.config.logger) {
+			_logger = server.config.logger;
 		} else {
 			_logger = require('winston');
 		}
@@ -76,16 +49,16 @@ class PlexImporter {
 	}
 
 	getConfig() {
-		if (this.config) {
-			return this.config;
+		if (this.server && this.server.config) {
+			return this.server.config;
 		} else {
 			return {};
 		}
 	}
 
 	getPrefixes() {
-		if (this.config && this.config.stripPrefixes) {
-			return this.config.stripPrefixes;
+		if (this.server && this.server.config && this.server.config.stripPrefixes) {
+			return this.server.config.stripPrefixes;
 		}
 		return [];
 	}

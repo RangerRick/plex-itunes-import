@@ -8,7 +8,9 @@ class ITunesPlaylist extends Playlist {
 		if (data.items && data.items.length > 0) {
 			for (let d=0, len=data.items.length, item; d < len; d++) {
 				item = new ITunesSong(data.items[d]);
-				this.add(item);
+				if (item.file && item.file !== 'undefined') {
+					this.add(item);
+				}
 			}
 		}
 	}
